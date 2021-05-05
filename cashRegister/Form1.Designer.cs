@@ -29,6 +29,8 @@ namespace cashRegister
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(background));
             this.shoeNumber = new System.Windows.Forms.Label();
             this.basketballNumber = new System.Windows.Forms.Label();
             this.headbandNumber = new System.Windows.Forms.Label();
@@ -47,6 +49,11 @@ namespace cashRegister
             this.newOrderButton = new System.Windows.Forms.Button();
             this.priceLabel = new System.Windows.Forms.Label();
             this.changeBackLabel = new System.Windows.Forms.Label();
+            this.priceReceiptLabel = new System.Windows.Forms.Label();
+            this.namePlate = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label2 = new System.Windows.Forms.Label();
+            this.timerLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // shoeNumber
@@ -184,7 +191,6 @@ namespace cashRegister
             this.receiptLabel.Name = "receiptLabel";
             this.receiptLabel.Size = new System.Drawing.Size(292, 446);
             this.receiptLabel.TabIndex = 14;
-            this.receiptLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // newOrderButton
             // 
@@ -195,6 +201,7 @@ namespace cashRegister
             this.newOrderButton.TabIndex = 15;
             this.newOrderButton.Text = "New Order";
             this.newOrderButton.UseVisualStyleBackColor = true;
+            this.newOrderButton.Click += new System.EventHandler(this.newOrderButton_Click);
             // 
             // priceLabel
             // 
@@ -214,12 +221,58 @@ namespace cashRegister
             this.changeBackLabel.TabIndex = 17;
             this.changeBackLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
+            // priceReceiptLabel
+            // 
+            this.priceReceiptLabel.BackColor = System.Drawing.Color.Snow;
+            this.priceReceiptLabel.Location = new System.Drawing.Point(523, 200);
+            this.priceReceiptLabel.Name = "priceReceiptLabel";
+            this.priceReceiptLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.priceReceiptLabel.Size = new System.Drawing.Size(86, 339);
+            this.priceReceiptLabel.TabIndex = 18;
+            this.priceReceiptLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // namePlate
+            // 
+            this.namePlate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.namePlate.Font = new System.Drawing.Font("Mongolian Baiti", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.namePlate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.namePlate.Location = new System.Drawing.Point(-3, 1);
+            this.namePlate.Name = "namePlate";
+            this.namePlate.Size = new System.Drawing.Size(661, 83);
+            this.namePlate.TabIndex = 19;
+            this.namePlate.Text = "100% Authentic Not Fake Basketball Shop";
+            this.namePlate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(366, 174);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 13);
+            this.label2.TabIndex = 20;
+            // 
+            // timerLabel
+            // 
+            this.timerLabel.BackColor = System.Drawing.Color.Snow;
+            this.timerLabel.Location = new System.Drawing.Point(352, 187);
+            this.timerLabel.Name = "timerLabel";
+            this.timerLabel.Size = new System.Drawing.Size(67, 19);
+            this.timerLabel.TabIndex = 21;
+            // 
             // background
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSalmon;
             this.ClientSize = new System.Drawing.Size(657, 609);
+            this.Controls.Add(this.timerLabel);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.namePlate);
+            this.Controls.Add(this.priceReceiptLabel);
             this.Controls.Add(this.changeBackLabel);
             this.Controls.Add(this.priceLabel);
             this.Controls.Add(this.newOrderButton);
@@ -238,8 +291,9 @@ namespace cashRegister
             this.Controls.Add(this.headbandNumber);
             this.Controls.Add(this.basketballNumber);
             this.Controls.Add(this.shoeNumber);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "background";
-            this.Text = "Form1";
+            this.Text = "100% Authentic Not Fake Basketball Shop";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -265,6 +319,11 @@ namespace cashRegister
         private System.Windows.Forms.Button newOrderButton;
         private System.Windows.Forms.Label priceLabel;
         private System.Windows.Forms.Label changeBackLabel;
+        private System.Windows.Forms.Label priceReceiptLabel;
+        private System.Windows.Forms.Label namePlate;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label timerLabel;
     }
 }
 
