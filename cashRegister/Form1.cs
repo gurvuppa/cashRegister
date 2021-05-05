@@ -47,11 +47,11 @@ namespace cashRegister
         public background()
         {
             InitializeComponent();
-            changeButton.Enabled = false;
-            receiptButton.Enabled = false;
-            totalLabel.Visible = false;
+            changeButton.Enabled = false;           // buttons are not able to be pressed
+            receiptButton.Enabled = false;          // buttons are not able to be pressed
+            totalLabel.Visible = false;            //a tex box is invisable  
 
-            timerLabel.Visible = false;
+            timerLabel.Visible = false;           //the date wont be seen until receipt is print
             
 
             timer1.Stop();
@@ -72,23 +72,23 @@ namespace cashRegister
                 totalBands = Convert.ToDouble(textLabelBasketball.Text);
                 totalBalls = Convert.ToDouble(textLabelHeadbands.Text);
 
-                subTotal = (totalShoes * shoePrice) + (totalBalls * ballPrice) + (totalBands * bandPrice);
+                subTotal = (totalShoes * shoePrice) + (totalBalls * ballPrice) + (totalBands * bandPrice);      //add all the prices to get the sub total
+                    
+                taxAmount = subTotal * taxRate;             //get the amount of tax
 
-                taxAmount = subTotal * taxRate;
+                totalCost = subTotal + taxAmount;           //to get the total cost
 
-                totalCost = subTotal + taxAmount;
+                totalLabel.Visible = true;      //set the label that shows the total cost to visable
 
-                totalLabel.Visible = true;
+                priceLabel.Text = $"{subTotal.ToString("C")}";                      //print the totals
+                priceLabel.Text += $"\n\n{taxAmount.ToString("C")}";                //print the totals
+                priceLabel.Text += $"\n\n{totalCost.ToString("C")}";                //print the totals
 
-                priceLabel.Text = $"{subTotal.ToString("C")}";
-                priceLabel.Text += $"\n\n{taxAmount.ToString("C")}";
-                priceLabel.Text += $"\n\n{totalCost.ToString("C")}";
-
-                changeButton.Enabled = true;
+                changeButton.Enabled = true;                            //set the change button to enabled 
             }
             catch
             {
-                receiptLabel.Text = "\n\nPlease Enter The Amount of Each Item You Would Like As a Number\n\nEnter a 0 If You Wouldn't Like to Buy a Certain Item\n\nThank You!!";
+                receiptLabel.Text = "\n\nPlease Enter The Amount of Each Item You Would Like As a Number\n\nEnter a 0 If You Wouldn't Like to Buy a Certain Item\n\nThank You!!";     //print this if the costumer does not put the values in correctly
             }
 
 
@@ -119,7 +119,7 @@ namespace cashRegister
 
                     changeBackLabel.Text = $"{changeAmount.ToString("C")}";
 
-                    receiptButton.Enabled = true;+
+                    receiptButton.Enabled = true;                           //enable the receipt button
                 }
                 else
                 {
@@ -143,8 +143,8 @@ namespace cashRegister
 
             receiptLabel.Text = "\n\n                100% Authentic Not Fake Basketball Shop\n\n\n   Order Number 102";
 
-            timerLabel.Visible = true;
-            timer1.Start();
+            timerLabel.Visible = true;                                      //set the date to be visable
+            timer1.Start();                                                 //print the date
 
 
             receiptLabel.Text += $"\n\n\n\n   Micael Jordane Shoes x{totalShoes}";
@@ -152,7 +152,7 @@ namespace cashRegister
             receiptLabel.Text += $"\n\n   Headband x{totalBands}";
 
             priceReceiptLabel.Text = $"\n\n @{shoePrice.ToString("C")}";
-            priceReceiptLabel.Text += $"\n\n\n @{ballPrice.ToString("C")}";
+            priceReceiptLabel.Text += $"\n\n @{ballPrice.ToString("C")}";
             priceReceiptLabel.Text += $"\n\n @{bandPrice.ToString("C")}";
 
             receiptLabel.Text += $"\n\n\n   Subtotal";
