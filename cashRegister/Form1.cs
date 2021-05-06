@@ -29,15 +29,15 @@ namespace cashRegister
         double bandPrice = 10.00;
         double taxRate = 0.13;
 
-        double totalShoes;
-        double totalBalls;
-        double totalBands;
+        double totalShoes = 0;
+        double totalBalls = 0;
+        double totalBands = 0;
 
-        double subTotal;
-        double taxAmount;
-        double totalCost;
-        double amountTendered;
-        double changeAmount;
+        double subTotal = 0;
+        double taxAmount = 0;
+        double totalCost = 0;
+        double amountTendered = 0;
+        double changeAmount = 0;
 
 
 
@@ -52,7 +52,7 @@ namespace cashRegister
             totalLabel.Visible = false;            //a tex box is invisable  
 
             timerLabel.Visible = false;           //the date wont be seen until receipt is print
-            
+
 
             timer1.Stop();
 
@@ -83,10 +83,10 @@ namespace cashRegister
                 totalBands = Convert.ToDouble(textLabelBasketball.Text);
                 totalBalls = Convert.ToDouble(textLabelHeadbands.Text);
 
-                
 
-                    subTotal = (totalShoes * shoePrice) + (totalBalls * ballPrice) + (totalBands * bandPrice);      //add all the prices to get the sub total
-                    
+
+                subTotal = (totalShoes * shoePrice) + (totalBalls * ballPrice) + (totalBands * bandPrice);      //add all the prices to get the sub total
+
                 taxAmount = subTotal * taxRate;             //get the amount of tax
 
                 totalCost = subTotal + taxAmount;           //to get the total cost
@@ -98,7 +98,7 @@ namespace cashRegister
                 priceLabel.Text += $"\n\n{totalCost.ToString("C")}";                //print the totals
 
                 changeButton.Enabled = true;                            //set the change button to enabled 
-                
+
             }
             catch
             {
@@ -120,14 +120,14 @@ namespace cashRegister
 
                 chaChingPlayer.Play();
 
-                amountTendered = Convert.ToDouble(tenderedBox.Text);
+                amountTendered = Convert.ToDouble(textTenderedBox.Text);
 
 
 
 
                 if (amountTendered >= totalCost)
                 {
-                    amountTendered = Convert.ToDouble(tenderedBox.Text);
+                    amountTendered = Convert.ToDouble(textTenderedBox.Text);
 
                     changeAmount = amountTendered - totalCost;
 
@@ -159,39 +159,61 @@ namespace cashRegister
 
             timerLabel.Visible = true;                                      //set the date to be visable
             timer1.Start();                                                 //print the date
-           
 
-                receiptLabel.Text += $"\n\n\n\n   Micael Jordane Shoes x{totalShoes}";
-                receiptLabel.Text += $"\n\n   Basketball x{totalBalls}";
-                receiptLabel.Text += $"\n\n   Headband x{totalBands}";
 
-                priceReceiptLabel.Text = $"\n\n @{shoePrice.ToString("C")}";
-                priceReceiptLabel.Text += $"\n\n @{ballPrice.ToString("C")}";
-                priceReceiptLabel.Text += $"\n\n @{bandPrice.ToString("C")}";
+            receiptLabel.Text += $"\n\n\n\n   Micael Jordane Shoes x{totalShoes}";
+            receiptLabel.Text += $"\n\n   Basketball x{totalBalls}";
+            receiptLabel.Text += $"\n\n   Headband x{totalBands}";
 
-                receiptLabel.Text += $"\n\n\n   Subtotal";
-                receiptLabel.Text += $"\n\n   Tax";
-                receiptLabel.Text += $"\n\n   Total";
+            priceReceiptLabel.Text = $"\n\n @{shoePrice.ToString("C")}";
+            priceReceiptLabel.Text += $"\n\n @{ballPrice.ToString("C")}";
+            priceReceiptLabel.Text += $"\n\n @{bandPrice.ToString("C")}";
 
-                priceReceiptLabel.Text += $"\n\n\n {subTotal.ToString("C")}";
-                priceReceiptLabel.Text += $"\n\n {taxAmount.ToString("C")}";
-                priceReceiptLabel.Text += $"\n\n {totalCost.ToString("C")}";
+            receiptLabel.Text += $"\n\n\n   Subtotal";
+            receiptLabel.Text += $"\n\n   Tax";
+            receiptLabel.Text += $"\n\n   Total";
 
-                receiptLabel.Text += $"\n\n\n   Tendered";
-                receiptLabel.Text += $"\n\n   Change";
+            priceReceiptLabel.Text += $"\n\n\n {subTotal.ToString("C")}";
+            priceReceiptLabel.Text += $"\n\n {taxAmount.ToString("C")}";
+            priceReceiptLabel.Text += $"\n\n {totalCost.ToString("C")}";
 
-                priceReceiptLabel.Text += $"\n\n\n {amountTendered.ToString("C")}";
-                priceReceiptLabel.Text += $"\n\n {changeAmount.ToString("C")}";
+            receiptLabel.Text += $"\n\n\n   Tendered";
+            receiptLabel.Text += $"\n\n   Change";
 
-                receiptLabel.Text += "\n\n   Thank You! Have a Nice Day!!";
+            priceReceiptLabel.Text += $"\n\n\n {amountTendered.ToString("C")}";
+            priceReceiptLabel.Text += $"\n\n {changeAmount.ToString("C")}";
+
+            receiptLabel.Text += "\n\n   Thank You! Have a Nice Day!!";
 
         }
 
         private void newOrderButton_Click(object sender, EventArgs e)
         {
-            background NewForm = new background();
-            NewForm.Show();
-            this.Dispose(false);
+            totalShoes = 0;
+            totalBalls = 0;
+            totalBands = 0;
+
+            subTotal = 0;
+            taxAmount = 0;
+            totalCost = 0;
+            amountTendered = 0;
+            changeAmount = 0;
+
+            priceLabel.Text = "";
+            receiptLabel.Text = "";
+            changeLabel.Text = "";
+            changeBackLabel.Text = "";
+            priceReceiptLabel.Text = "";
+
+
+            textLabelBasketball.Clear();
+            textLabelHeadbands.Clear();
+            textLabelShoes.Clear();
+            textTenderedBox.Clear();
+
+            timerLabel.Visible = false;
+
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)

@@ -41,7 +41,7 @@ namespace cashRegister
             this.totalLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tenderedLabel = new System.Windows.Forms.Label();
-            this.tenderedBox = new System.Windows.Forms.TextBox();
+            this.textTenderedBox = new System.Windows.Forms.TextBox();
             this.changeButton = new System.Windows.Forms.Button();
             this.changeLabel = new System.Windows.Forms.Label();
             this.receiptButton = new System.Windows.Forms.Button();
@@ -145,12 +145,12 @@ namespace cashRegister
             this.tenderedLabel.TabIndex = 9;
             this.tenderedLabel.Text = "Tendered";
             // 
-            // tenderedBox
+            // textTenderedBox
             // 
-            this.tenderedBox.Location = new System.Drawing.Point(196, 434);
-            this.tenderedBox.Name = "tenderedBox";
-            this.tenderedBox.Size = new System.Drawing.Size(95, 20);
-            this.tenderedBox.TabIndex = 10;
+            this.textTenderedBox.Location = new System.Drawing.Point(196, 438);
+            this.textTenderedBox.Name = "textTenderedBox";
+            this.textTenderedBox.Size = new System.Drawing.Size(95, 20);
+            this.textTenderedBox.TabIndex = 10;
             // 
             // changeButton
             // 
@@ -280,7 +280,7 @@ namespace cashRegister
             this.Controls.Add(this.receiptButton);
             this.Controls.Add(this.changeLabel);
             this.Controls.Add(this.changeButton);
-            this.Controls.Add(this.tenderedBox);
+            this.Controls.Add(this.textTenderedBox);
             this.Controls.Add(this.tenderedLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.totalLabel);
@@ -311,7 +311,7 @@ namespace cashRegister
         private System.Windows.Forms.Label totalLabel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label tenderedLabel;
-        private System.Windows.Forms.TextBox tenderedBox;
+        private System.Windows.Forms.TextBox textTenderedBox;
         private System.Windows.Forms.Button changeButton;
         private System.Windows.Forms.Label changeLabel;
         private System.Windows.Forms.Button receiptButton;
