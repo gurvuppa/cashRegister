@@ -70,7 +70,7 @@ namespace cashRegister
 
 
 
-                if (textLabelHeadbands.Text == "")                                  //if  user no does not put 0's into the textBox, it will automatically be filled
+                if (textLabelShoes.Text == "")                                  //if  user no does not put 0's into the textBox, it will automatically be filled
                     textLabelShoes.Text = "0";
 
                 if (textLabelBasketball.Text == "")                                  //if  user no does not put 0's into the textBox, it will automatically be filled           
