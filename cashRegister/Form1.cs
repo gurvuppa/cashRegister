@@ -68,11 +68,24 @@ namespace cashRegister
 
                 buttonPressPlayer.Play();
 
+
+
+                if (textLabelHeadbands.Text == "")                                  //if  user no does not put 0's into the textBox, it will automatically be filled
+                    textLabelShoes.Text = "0";
+
+                if (textLabelBasketball.Text == "")                                  //if  user no does not put 0's into the textBox, it will automatically be filled           
+                    textLabelBasketball.Text = "0";
+
+                if (textLabelHeadbands.Text == "")                                  //if  user no does not put 0's into the textBox, it will automatically be filled
+                    textLabelHeadbands.Text = "0";
+
                 totalShoes = Convert.ToDouble(textLabelShoes.Text);
                 totalBands = Convert.ToDouble(textLabelBasketball.Text);
                 totalBalls = Convert.ToDouble(textLabelHeadbands.Text);
 
-                subTotal = (totalShoes * shoePrice) + (totalBalls * ballPrice) + (totalBands * bandPrice);      //add all the prices to get the sub total
+                
+
+                    subTotal = (totalShoes * shoePrice) + (totalBalls * ballPrice) + (totalBands * bandPrice);      //add all the prices to get the sub total
                     
                 taxAmount = subTotal * taxRate;             //get the amount of tax
 
@@ -85,10 +98,11 @@ namespace cashRegister
                 priceLabel.Text += $"\n\n{totalCost.ToString("C")}";                //print the totals
 
                 changeButton.Enabled = true;                            //set the change button to enabled 
+                
             }
             catch
             {
-                receiptLabel.Text = "\n\nPlease Enter The Amount of Each Item You Would Like As a Number\n\nEnter a 0 If You Wouldn't Like to Buy a Certain Item\n\nThank You!!";     //print this if the costumer does not put the values in correctly
+                receiptLabel.Text = "\n\nPlease Enter The Amount of Each Item You Would Like As a Number\n\nThank You!!";     //print this if the costumer does not put the values in correctly
             }
 
 
@@ -145,33 +159,31 @@ namespace cashRegister
 
             timerLabel.Visible = true;                                      //set the date to be visable
             timer1.Start();                                                 //print the date
+           
 
+                receiptLabel.Text += $"\n\n\n\n   Micael Jordane Shoes x{totalShoes}";
+                receiptLabel.Text += $"\n\n   Basketball x{totalBalls}";
+                receiptLabel.Text += $"\n\n   Headband x{totalBands}";
 
-            receiptLabel.Text += $"\n\n\n\n   Micael Jordane Shoes x{totalShoes}";
-            receiptLabel.Text += $"\n\n   Basketball x{totalBalls}";
-            receiptLabel.Text += $"\n\n   Headband x{totalBands}";
+                priceReceiptLabel.Text = $"\n\n @{shoePrice.ToString("C")}";
+                priceReceiptLabel.Text += $"\n\n @{ballPrice.ToString("C")}";
+                priceReceiptLabel.Text += $"\n\n @{bandPrice.ToString("C")}";
 
-            priceReceiptLabel.Text = $"\n\n @{shoePrice.ToString("C")}";
-            priceReceiptLabel.Text += $"\n\n @{ballPrice.ToString("C")}";
-            priceReceiptLabel.Text += $"\n\n @{bandPrice.ToString("C")}";
+                receiptLabel.Text += $"\n\n\n   Subtotal";
+                receiptLabel.Text += $"\n\n   Tax";
+                receiptLabel.Text += $"\n\n   Total";
 
-            receiptLabel.Text += $"\n\n\n   Subtotal";
-            receiptLabel.Text += $"\n\n   Tax";
-            receiptLabel.Text += $"\n\n   Total";
+                priceReceiptLabel.Text += $"\n\n\n {subTotal.ToString("C")}";
+                priceReceiptLabel.Text += $"\n\n {taxAmount.ToString("C")}";
+                priceReceiptLabel.Text += $"\n\n {totalCost.ToString("C")}";
 
-            priceReceiptLabel.Text += $"\n\n\n {subTotal.ToString("C")}";
-            priceReceiptLabel.Text += $"\n\n {taxAmount.ToString("C")}";
-            priceReceiptLabel.Text += $"\n\n {totalCost.ToString("C")}";
+                receiptLabel.Text += $"\n\n\n   Tendered";
+                receiptLabel.Text += $"\n\n   Change";
 
-            receiptLabel.Text += $"\n\n\n   Tendered";
-            receiptLabel.Text += $"\n\n   Change";
+                priceReceiptLabel.Text += $"\n\n\n {amountTendered.ToString("C")}";
+                priceReceiptLabel.Text += $"\n\n {changeAmount.ToString("C")}";
 
-            priceReceiptLabel.Text += $"\n\n\n {amountTendered.ToString("C")}";
-            priceReceiptLabel.Text += $"\n\n {changeAmount.ToString("C")}";
-
-            receiptLabel.Text += "\n\n   Thank You! Have a Nice Day!!";
-
-
+                receiptLabel.Text += "\n\n   Thank You! Have a Nice Day!!";
 
         }
 
